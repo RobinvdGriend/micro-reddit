@@ -8,4 +8,5 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true, length: { minimum: 3, maximum: 140 }
   validates :link, presence: true, format: { with: URI::regexp }
+  validates :user_id, presence: true
 end

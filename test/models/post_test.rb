@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @post = Post.new(title: "Example Post", link: "http://google.com")
+    @post = Post.new(title: "Example Post", link: "http://google.com", user_id: 1 )
   end
 
   test "should be valid" do
@@ -28,4 +28,9 @@ class PostTest < ActiveSupport::TestCase
     @post.link = "testcom."
     assert_not @post.valid?
   end 
+  
+  test "user_id should be present" do
+    @post.user_id = nil
+    assert_not @post.valid?
+  end
 end
